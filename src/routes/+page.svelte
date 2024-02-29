@@ -1,5 +1,7 @@
 <script>
-  import App from '../components/App.svelte';
+  import ScrollyTeller from '/Users/josephguzman/Desktop/what-a-waste-commentary/src/components/ScrollyTeller.svelte'
 </script>
 
-<App />
+<main>
+  <ScrollyTeller />
+</main>
