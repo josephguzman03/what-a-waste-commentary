@@ -38,8 +38,6 @@ locally but not on GitHub pages**:
 // const res = await fetch('static/temp.csv');
 ```
 
-### Using other packages (e.g. Mapbox)
-
 To include other packages in your project, install them first by running:
 
 ```js
@@ -50,18 +48,6 @@ Then, you can import the packages in your Svelte JS like so:
 
 ```js
 import moment from 'moment';
-```
-
-You should double check the package page to make sure you didn't miss anything
-during import. For example, the web page for setting up mapbox-gl with Svelte
-(https://docs.mapbox.com/help/tutorials/use-mapbox-gl-js-with-svelte/) says
-that you should actually write two `import` statements:
-
-```js
-// This imports the package itself
-import mapbox from 'mapbox-gl';
-// This import the mapbox CSS styles
-import 'mapbox-gl/dist/mapbox-gl.css';
 ```
 
 ## Deploying your webpage
