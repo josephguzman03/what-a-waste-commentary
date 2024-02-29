@@ -3,20 +3,6 @@
 This repo contains a template for a Svelte project that uses D3. It has extra
 configuration to make it easy to deploy to GitHub pages.
 
-## Getting started
-
-Click the green "Use this template" button, then "Create a new repository" in
-the top right portion of the webpage.
-
-![template](assets/template.png)
-
-After GitHub completes the cloning process, navigate to the Settings page. On
-the left panel, under the "Pages" tab, locate the "Source" section and select
-"GitHub Actions" as the source.
-
-Then, clone this repository to your local computer. After cloning the
-repository, navigate to the repository in your terminal and run:
-
 ```
 npm install
 ```
