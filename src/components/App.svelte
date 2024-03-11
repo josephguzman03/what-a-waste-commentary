@@ -75,7 +75,7 @@ p {
     // Load the CSV data
     const [zaraData, depopData] = await Promise.all([
       csv("zara_price.csv"),
-      csv("final_depop.csv")
+      csv("FINAL_DATA_V0.csv")
     ]);
 
     // Process the data to calculate the average price for each category for Zara

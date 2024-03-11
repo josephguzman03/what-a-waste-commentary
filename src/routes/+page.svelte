@@ -1,7 +1,7 @@
 <script>
   import App from '/src/components/App.svelte';
   import Animation from '/src/components/Animation.svelte';
-  import Line from '/src/components/Line.svelte';
+  // import Line from '/src/components/Line.svelte';
 
 
   const datasetUrl = "static/world.csv";
@@ -12,7 +12,17 @@
 
 <style>
 
+h1 {
+    background-color: #E2E5DE;
+      font-family: "Playfair Display", bold;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      height: 10vh;
+      margin: 0;
+      padding: 10px 30px;
 
+  }
   h2 {
     
       display: flex;
@@ -50,8 +60,12 @@ p {
 
 </style>
 
-
-<Line />
+<h1>
+  What a Waste!
+  <br> 
+  A visualization commentary
+</h1>
+<!-- <Line></Line> -->
 <h3> Joseph Guzman and Daniel Park </h3>
 
 
