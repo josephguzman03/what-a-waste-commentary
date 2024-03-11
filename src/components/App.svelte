@@ -1,20 +1,15 @@
 <main>
-  <p>
-    insert paragraphs
-  </p>
-  <p> For this section of the website, our objective is to create a Bar Chart, 
-    preferably a Diverging Stacked Bar Chart. This segment will explore the comparison
-     between second-hand clothing and the prevailing fast fashion market. Our intention
-      is to utilize Zara as the representative example of fast fashion, given its appeal 
-      to both higher and lower socioeconomic demographics. Conversely, Depop serves as an
-       online second-hand resale platform catering to a diverse range of customers. Our
-        aim is to examine the varied price points across different categories of garments
-         to elucidate the relationship between pricing and market segments. Ultimately, 
-         we seek to demonstrate that Depop offers a platform conducive to reducing textile 
-         waste and fostering environmental stewardship. Initial data analysis suggests
-          discernible disparities across multiple facets. Moving forward, we intend to 
-          refine and enhance the visual presentation of this data, ensuring an interactive 
-          and compelling comparison. </p>
+  <p> In this section of the website, our objective is to create a Diverging Bar Chart. 
+    This segment will explore the comparison between second-hand clothing and the 
+    fast fashion market. Our intention is to utilize Zara as the representative
+     of fast fashion, given its appeal to both higher and lower socioeconomic 
+     demographics. Conversely, Depop will serve as an example for online second-hand 
+     resale platforms catering to a diverse range of customers. Our aim is to
+      examine the varied price points across five different categories of
+       garments to elucidate the relationship between pricing and market
+        segments. We seek to demonstrate that Depop offers a platform
+         conducive to reducing textile waste and fostering environmental
+          mindfulness.  </p>
   <style>
     body {
         justify-content: center;
@@ -42,7 +37,7 @@ p {
       justify-content: left;
       align-items: center;
       margin: 0;
-      padding: 30px 100px;
+      padding: 10px 100px;
   }
 
 
