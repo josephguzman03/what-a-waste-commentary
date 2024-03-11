@@ -7,11 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     %sveltekit.head%
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+        :root {
+            --primary-color: #F5F5F5; /* Coral */
+        }
+
         body {
+            font-family: "Playfair Display", serif;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-color: var(--primary-color);
+            color: black;
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            margin: 0;
+            padding: 8px 10px;
+        }
+
+        svg {
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
