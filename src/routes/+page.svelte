@@ -51,7 +51,7 @@ p {
 </style>
 
 
-<Line></Line>
+<!-- <Line></Line> -->
 <h3> Joseph Guzman and Daniel Park </h3>
 
 
