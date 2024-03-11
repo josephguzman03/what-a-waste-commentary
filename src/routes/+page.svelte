@@ -36,11 +36,7 @@
 
   }
 
-  .titleBar {
-	background-color: #E2E5DE;
-      color: black;
-      transition: 100ms linear;
-}
+
 p {
   font-family: "Times New Roman", serif;
   font-size: large;
@@ -50,14 +46,6 @@ p {
       align-items: center;
       margin: 0;
       padding: 30px 100px;
-  }
-  .dashed-line {
-    position: absolute; /* Position the line */
-    top: calc(10vh + 10px); /* Position below h3 block */
-    left: 0; /* Align with the left edge */
-    width: 100%; /* Take full width of the container */
-    height: 0; /* Set initial height to 0 */
-    border-top: 2px dashed black; /* Style the dashed line */
   }
 
 </style>
