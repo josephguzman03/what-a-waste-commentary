@@ -1,7 +1,7 @@
 <script>
   import App from '/src/components/App.svelte';
   import Animation from '/src/components/Animation.svelte';
-  import Line from '/src/components/Line.svelte';
+  // import Line from '/src/components/Line.svelte';
 
 
   const datasetUrl = "static/world.csv";
