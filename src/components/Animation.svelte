@@ -63,6 +63,7 @@
 
 <script lang="ts">
   import { onMount } from 'svelte';
+  import * as d3 from 'd3';
   import { csv } from "d3-fetch";
   import { scaleBand, scaleLinear, scaleOrdinal } from "d3-scale";
   import { schemeSet3 } from "d3-scale-chromatic";

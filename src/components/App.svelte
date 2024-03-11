@@ -58,6 +58,7 @@ p {
 
 <script>
   import { onMount } from 'svelte';
+  import * as d3 from 'd3';
   import { csv } from 'd3-fetch';
   import { select } from 'd3-selection';
   import { scaleBand, scaleLinear, scaleOrdinal } from 'd3-scale';
@@ -157,18 +158,6 @@ p {
       .attr("width", d => Math.abs(x(d.AvgPrice) - x(0)) + 5) // Adjusted width for Depop
       .attr("height", y.bandwidth())
       .style("display", "none"); // Initially hide the bars
-
-    // Create and append the x-axis
-    svg.append("g")
-      .attr("class", "x-axis")
-      .attr("transform", `translate(0,${height - marginBottom})`)
-      .call(axisBottom(x));
-
-    // Create and append the y-axis
-    svg.append("g")
-      .attr("class", "y-axis")
-      .attr("transform", `translate(${marginLeft},0)`)
-      .call(axisLeft(y));
 
     svg.selectAll(".x-axis text")
        .style("font-family", "Playfair Display",);
