@@ -30,7 +30,7 @@ h1 {
       justify-content: center;
       align-items: center;
       height: 5vh;
-      margin: 0px;
+      margin: 20px;
       padding: 10px 100px;
       
   }

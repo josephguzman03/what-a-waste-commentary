@@ -40,7 +40,15 @@
   let intervalId; // Variable to hold the interval id for animation
 
   onMount(async () => {
-      const rawData = await csv(datasetUrl);
+      const rawData = await csv(datasetUrl, ({ Country, ...row }) => ({
+          Country,
+          ...Object.fromEntries(
+              Object.entries(row).map(([key, value]) => [
+                  key,
+                  isNaN(value) ? value : +value / 1000000, // Convert pounds to millions of pounds
+              ])
+          ),
+      }));
 
       // Extract year columns
       yearColumns = rawData.columns.slice(2, -1).map(year => +year);
@@ -182,7 +190,7 @@
         justify-content: center;
         align-items: center;
         height: 10vh;
-        margin: 0px;
+        margin: 20px;
         padding: 8px 10px;
         background-color: #F5F5F5;
     }
@@ -248,7 +256,7 @@
           >
             {item.country}
             <tspan fill-opacity="0.7" font-weight="normal" x="-6" dy="1.15em">
-              {item.value.toFixed(2)}
+              {(item.value).toFixed(2)}M
             </tspan>
           </text>
         </g>
@@ -285,6 +293,38 @@
       style="cursor: pointer;"
       on:click={() => animationPaused = !animationPaused}>
       {animationPaused ? 'Play' : 'Pause'}
+    </text>
+  </g>
+
+  <!-- Reset button -->
+  <g transform={`translate(${dimensions.width - 200}, ${dimensions.height - 40})`}>
+    <rect
+      width="70"
+      height="30"
+      fill="white"
+      stroke="black"
+      rx="5"
+      ry="5"
+      style="cursor: pointer;"
+      on:click={() => {
+        current = 0;
+        animationPaused = true;
+        animate(); // Reset to the initial state
+      }}
+    />
+    <text
+      x="35"
+      y="20"
+      text-anchor="middle"
+      font-size="14px"
+      fill="black"
+      style="cursor: pointer;"
+      on:click={() => {
+        current = 0;
+        animationPaused = true;
+        animate(); // Reset to the initial state
+      }}>
+      Reset
     </text>
   </g>
 </svg>

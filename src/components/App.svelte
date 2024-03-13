@@ -10,47 +10,49 @@
         segments. We seek to demonstrate that Depop offers a platform
          conducive to reducing textile waste and fostering environmental
           mindfulness.  </p>
-  <style>
-    body {
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    
-    }
-
-    h2 {
-    
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    height: 5vh;
-    margin: 3px;
-    padding: 10px 100px;
-    
-}
-p {
-  font-family: "Times New Roman", serif;
-  font-size: large;
-  background-color: #F5F5F5;
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      margin: 0;
-      padding: 10px 100px;
-  }
-
-
-
-  </style>
-
   <h2>Zara v Depop - Average Price by Category</h2>
   
+  <div class="checkbox-container">
+  </div>
+
   <div id="chart">
     <!-- This is where the chart will be rendered -->
   </div>
 </main>
+<style>
 
+
+  h2 {
+  
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  height: 0vh;
+  margin: 10px;
+  padding: 10px 100px;
+  
+}
+p {
+font-family: "Times New Roman", serif;
+font-size: large;
+background-color: #F5F5F5;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 10px;
+    padding: 10px 100px;
+}
+
+
+.checkbox-container {
+  display: flex;
+  justify-content: center; /* Center checkboxes horizontally */
+  align-items: center;
+  margin-bottom: 0px; /* Adjust the margin between the checkboxes and the graph */
+  height: 12vh;
+}
+
+</style>
 <script>
   import { onMount } from 'svelte';
   import * as d3 from 'd3';
@@ -111,10 +113,12 @@ p {
       .range(["red", "grey", "green", "blue", "purple"])
       ;
 
-    // Create the SVG container
-     svg = select("#chart").append("svg")
-      .attr("viewBox", [0, 0, width + marginRight, (combinedData.length + 1) * barHeight + marginTop + marginBottom])
-      .attr("style", "max-width: 100%; height: auto; font: 10px Playfair Display;");
+// Create the SVG container
+svg = select("#chart").append("svg")
+  .attr("viewBox", [0, 0, width + marginRight, (combinedData.length + 1) * barHeight + marginTop + marginBottom])
+  .attr("style", "max-width: 100%; height: auto; font: 10px Playfair Display;")
+  .style("display", "block") // Ensure the SVG is displayed as a block element
+  .style("margin", "0 auto"); // Center the SVG horizontally within its container
 
     // Create the positional scales
     x = scaleLinear()
@@ -261,28 +265,36 @@ p {
         .attr("fill", d => categoryColors(d.Category)) // Match the color of the bars
         .style("display", "none");
 
+// Create a container div to hold both checkboxes
+const checkboxContainer = document.createElement("div");
+checkboxContainer.style.display = "flex";
+checkboxContainer.style.justifyContent = "center"; // Center the content horizontally
+checkboxContainer.style.marginBottom = "20px"; // Adjust margin if needed
 
-    // Add checkbox for average graph
-    const avgCheckbox = document.createElement("input");
-    avgCheckbox.setAttribute("type", "checkbox");
-    avgCheckbox.setAttribute("id", "avgCheckbox");
-    avgCheckbox.addEventListener("change", toggleAverageGraph);
-    const avgLabel = document.createElement("label");
-    avgLabel.setAttribute("for", "avgCheckbox");
-    avgLabel.textContent = "Average Graph";
-    document.getElementById("chart").appendChild(avgCheckbox);
-    document.getElementById("chart").appendChild(avgLabel);
+// Add checkbox for average graph
+const avgCheckbox = document.createElement("input");
+avgCheckbox.setAttribute("type", "checkbox");
+avgCheckbox.setAttribute("id", "avgCheckbox");
+avgCheckbox.addEventListener("change", toggleAverageGraph);
+const avgLabel = document.createElement("label");
+avgLabel.setAttribute("for", "avgCheckbox");
+avgLabel.textContent = "Average Graph";
+checkboxContainer.appendChild(avgCheckbox);
+checkboxContainer.appendChild(avgLabel);
 
-    // Add checkbox for min max graph
-    const minMaxCheckbox = document.createElement("input");
-    minMaxCheckbox.setAttribute("type", "checkbox");
-    minMaxCheckbox.setAttribute("id", "minMaxCheckbox");
-    minMaxCheckbox.addEventListener("change", toggleMinMaxGraph);
-    const minMaxLabel = document.createElement("label");
-    minMaxLabel.setAttribute("for", "minMaxCheckbox");
-    minMaxLabel.textContent = "Min Max Graph";
-    document.getElementById("chart").appendChild(minMaxCheckbox);
-    document.getElementById("chart").appendChild(minMaxLabel);
+// Add checkbox for min max graph
+const minMaxCheckbox = document.createElement("input");
+minMaxCheckbox.setAttribute("type", "checkbox");
+minMaxCheckbox.setAttribute("id", "minMaxCheckbox");
+minMaxCheckbox.addEventListener("change", toggleMinMaxGraph);
+const minMaxLabel = document.createElement("label");
+minMaxLabel.setAttribute("for", "minMaxCheckbox");
+minMaxLabel.textContent = "Min Max Graph";
+checkboxContainer.appendChild(minMaxCheckbox);
+checkboxContainer.appendChild(minMaxLabel);
+
+// Append the container to the chart
+document.getElementById("chart").appendChild(checkboxContainer);
 
     // Function to toggle average graph
     function toggleAverageGraph() {
