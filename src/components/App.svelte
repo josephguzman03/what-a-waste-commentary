@@ -303,7 +303,14 @@ document.getElementById("chart").appendChild(checkboxContainer);
       svg.selectAll(".max-dot-zara-left, .max-dot-depop, .min-dot-zara-left, .min-dot-depop").style("display", isChecked ? "block" : "none");
     }
 
-    
+    function createFallingObject() {
+    const object = document.createElement('div');
+    object.classList.add('falling-object');
+    object.style.left = `${getRandomNumber(0, window.innerWidth - 20)}px`;
+    object.style.top = '0px';
+    document.getElementById('falling-objects-container').appendChild(object);
+    return object;
+}
     // Add hover functionality for average values
     svg.selectAll(".bar-rect")
       .on("mouseenter", function (event, d) {

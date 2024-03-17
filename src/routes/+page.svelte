@@ -1,9 +1,6 @@
 <script>
   import App from '/src/components/App.svelte';
   import Animation from '/src/components/Animation.svelte';
-  // import Line from '/src/components/Line.svelte';
-
-
   const datasetUrl = "static/world.csv";
   const maxBars = 6;
 
@@ -53,7 +50,7 @@ h1 {
       height: 10vh;
       margin: 0;
       padding: 0px 30px;
-      border-bottom: 2px solid #000; /* Add a subtle line underneath */
+      border-bottom: 2px solid #000; 
 
   }
   .resource-section {
@@ -92,7 +89,7 @@ p {
 </h1>
 
 <!-- <Line></Line> -->
-<h3> Joseph Guzman and Daniel Park </h3>
+<h3> Joseph Guzman  and Daniel Park </h3>
 
 
 
