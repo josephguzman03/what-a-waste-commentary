@@ -78,6 +78,12 @@ p {
       margin: 0;
       padding: 30px 100px;
   }
+  li {
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 50px;
+  }
 
 </style>
 
@@ -102,7 +108,12 @@ p {
       items to conserve resources, we set out to examine this practice. 
       We sought to answer: Does second hand clothing offer a better
        value overall ?
+  <br> <br>
+  Check out our demo video for a deeper understanding of how to navigate our website and the initiative behind it:
 </p>
+
+<li><a href="https://youtube.com/watch?v=0u6gV3ZV8H8" target="_blank">Demo Video</a></li>
+<br>
 <h2> Textile and Apparel Imports by Country </h2>
 
 <Animation />
