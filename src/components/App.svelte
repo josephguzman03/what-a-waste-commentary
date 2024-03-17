@@ -1,16 +1,11 @@
 <main>
-  <p> In this section of the website, our objective is to create a Diverging Bar Chart. 
-    This segment will explore the comparison between second-hand clothing and the 
-    fast fashion market. Our intention is to utilize Zara as the representative
-     of fast fashion, given its appeal to both higher and lower socioeconomic 
-     demographics. Conversely, Depop will serve as an example for online second-hand 
-     resale platforms catering to a diverse range of customers. Our aim is to
-      examine the varied price points across five different categories of
-       garments to elucidate the relationship between pricing and market
-        segments. We seek to demonstrate that Depop offers a platform
-         conducive to reducing textile waste and fostering environmental
-          mindfulness.  </p>
-  <h2>Zara v Depop - Average Price by Category</h2>
+  <p> 
+    Our objective is to create a Diverging Bar Chart to compare second-hand clothing with the fast fashion market. We will use Zara as the representative of fast fashion due to its popularity across different socioeconomic demographics. On the other hand, Depop will be our example for online second-hand resale platforms, catering to a diverse range of customers. Our goal is to explore the pricing dynamics across five categories of garments, shedding light on the relationship between pricing strategies and market segments.
+    <br><br>
+    By comparing Zara and Depop across categories like shirts, bottoms, outerwear, footwear, and accessories, we aim to illustrate how pricing varies between these two market segments. Zara, known for its fast fashion model, appeals to a broad customer base with varying affordability levels. Meanwhile, Depop represents a sustainable alternative, offering pre-loved items at potentially lower prices, contributing to reducing textile waste and promoting environmental mindfulness.
+    <br><br>
+    Through this analysis, we aim to showcase Depop's role as a platform that not only provides affordable clothing options but also supports sustainable practices in the fashion industry. By highlighting the differences in pricing and market approach between fast fashion and second-hand resale platforms, we hope to encourage consumers to make more informed choices that align with their values and contribute positively to environmental conservation efforts. </p>
+  <h2>Zara v Depop - Average Price by Category w/ Min & Max </h2>
   
   <div class="checkbox-container">
   </div>

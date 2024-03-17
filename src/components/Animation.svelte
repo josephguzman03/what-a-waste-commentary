@@ -207,17 +207,68 @@
   font-size: large;
   background-color: #F5F5F5;
       display: flex;
-      justify-content: left;
-      align-items: center;
+
       margin: 0;
       padding: 0px 100px;
+  }
+  ol {
+    font-family: "Times New Roman", serif;
+  font-size: large;
+  background-color: #F5F5F5;
+      margin: 5;
+      padding: 0px 100px;
+
   }
 
 </style>
 
-<p> To begin with, we decided to examine textile and apparel imports by country worldwide from 1989 to 2022. 
-  By identifying the origins of these imports, we can pinpoint key countries that may have correlation with social and economic 
-  indicators that may impact our environment. </p>
+<p> To begin with, we decided to delve into the types of
+   textile and apparel imports. Our motivation was fueled by responsibly, 
+   where do these textiles and apparels come from?
+  As the staggering volume of textile waste, often discarded without a second thought, has become an 
+   environmental crisis in todays global issues. As we created this chart, our
+   logic was simple, if we understood the origins, we can understand the outside factors,
+   that may play a part on the affects of textile waste.
+  </p>
+  <ol>
+
+
+  <li><b>Global Patterns:</b> Our primary objective 
+    was to examine worldwide textile and apparel 
+    imports by country from 1989 to 2022. By 
+    identifying the origins of these imports, 
+    we aimed to pinpoint key countries that may 
+    have correlations with social and economic 
+    indicators impacting our environment. Through 
+    this lens, we sought to unravel global patterns,
+     uncovering which nations contribute significantly
+      to the textile supply chain and which face 
+      challenges in sustainable practices.
+    </li> 
+    <br>
+<li><b> Economic Implications:</b> Expanding on the economic implications of 
+  textile and apparel imports, it's crucial to recognize that countries 
+  contributing significantly to these imports often experience economic
+   benefits and challenges. Understanding these economic aspects is essential 
+   for devising strategies that balance economic growth with environmental 
+   responsibility in the textile supply chain. By analyzing the economic
+    implications of textile imports, we can identify opportunities 
+    for sustainable practices and address challenges that arise 
+    from economic dependencies on the textile industry.
+
+
+</li>
+    </ol>
+    <p>
+
+
+    Therefore, underneath, we created an animated bar chart race that
+     vividly illustrates the evolution of U.S. Textile and Apparel
+      Imports by Origin Over Time.
+  
+    </p>
+
+
 
 <h2>U.S. Textile and Apparel Imports by Origin Over Time (in lbs.) </h2>
 
