@@ -11,9 +11,9 @@
   let keyframes = [];
   let ticker = "";
   let keyframeItems = [];
-  let xScale; // Scale for the x-axis (values)
-  let yScale; // Scale for the y-axis (countries)
-  let animationPaused = true; // Variable to control animation state
+  let xScale; 
+  let yScale; 
+  let animationPaused = true; 
 
   const datasetUrl = 'world.csv';
 
@@ -37,7 +37,7 @@
   let current = 0;
   const formatTicker = timeFormat("%Y");
 
-  let intervalId; // Variable to hold the interval id for animation
+  let intervalId; 
 
   onMount(async () => {
       const rawData = await csv(datasetUrl, ({ Country, ...row }) => ({
@@ -45,7 +45,7 @@
           ...Object.fromEntries(
               Object.entries(row).map(([key, value]) => [
                   key,
-                  isNaN(value) ? value : +value / 1000000, // Convert pounds to millions of pounds
+                  isNaN(value) ? value : +value / 1000000,
               ])
           ),
       }));
@@ -78,7 +78,7 @@
               return {
                   country: country.country,
                   value: country.values.find(entry => entry.year.getFullYear() === year)?.value || 0,
-                  category: country.category // Include category information
+                  category: country.category 
               };
           });
           // Sort frameData by value
@@ -86,7 +86,7 @@
 
           return {
               year: parseYear(String(year)),
-              data: frameData.slice(0, 10) // Top 10 countries for each year
+              data: frameData.slice(0, 10)
           };
       });
 
@@ -147,15 +147,14 @@
   };
 
   const rank = (data) => {
-      const sortedData = data.slice().sort((a, b) => b.value - a.value); // Sort data by value in descending order
+      const sortedData = data.slice().sort((a, b) => b.value - a.value); 
       const rankedData = sortedData.map((item, index) => ({
           ...item,
-          rank: index + 1 // Assign rank starting from 1
+          rank: index + 1 
       }));
       return rankedData;
   };
 
-  // Transition function for bar exit
   function barExit(node) {
       return {
           duration: duration * 2,
@@ -164,7 +163,6 @@
                   opacity: ${1 - t}; // Fade out by reducing opacity as t goes from 1 to 0
               `;
           },
-          // Remove the node from the DOM after the transition completes
           tick: (t) => {
               if (t === 1) node.remove();
           }
@@ -198,7 +196,7 @@
     display: flex;
     max-width: 100%;
     margin: auto;
-    margin-left:-100px; /* Adjust this value as needed */
+    margin-left:-100px; 
     background-color: #F5F5F5;
     
   }
@@ -360,7 +358,7 @@
       on:click={() => {
         current = 0;
         animationPaused = true;
-        animate(); // Reset to the initial state
+        animate();
       }}
     />
     <text
@@ -373,7 +371,7 @@
       on:click={() => {
         current = 0;
         animationPaused = true;
-        animate(); // Reset to the initial state
+        animate(); 
       }}>
       Reset
     </text>

@@ -11,7 +11,6 @@
   </div>
 
   <div id="chart">
-    <!-- This is where the chart will be rendered -->
   </div>
 </main>
 <style>
@@ -41,9 +40,9 @@ background-color: #F5F5F5;
 
 .checkbox-container {
   display: flex;
-  justify-content: center; /* Center checkboxes horizontally */
+  justify-content: center; 
   align-items: center;
-  margin-bottom: 0px; /* Adjust the margin between the checkboxes and the graph */
+  margin-bottom: 0px; 
   height: 12vh;
 }
 
@@ -73,7 +72,7 @@ background-color: #F5F5F5;
     // Process the data to calculate the average price for each category for Zara
     const zaraAvgPrices = Array.from(group(zaraData, d => d.Category), ([key, values]) => ({
       Category: key,
-      AvgPrice: mean(values, d => +d.Price), // Convert Price to number
+      AvgPrice: mean(values, d => +d.Price),
       MaxPrice: max(values, d => +d.Price),
       MinPrice: min(values, d => +d.Price),
       Origin: "Zara",
@@ -82,7 +81,7 @@ background-color: #F5F5F5;
     // Process the data to calculate the average price for each category for Depop
     const depopAvgPrices = Array.from(group(depopData, d => d.Category), ([key, values]) => ({
       Category: key,
-      AvgPrice: mean(values, d => +d.Price), // Convert Price to number
+      AvgPrice: mean(values, d => +d.Price),
       MaxPrice: max(values, d => +d.Price),
       MinPrice: min(values, d => +d.Price),
       Origin: "Depop",
@@ -93,18 +92,18 @@ background-color: #F5F5F5;
 
     // Specify the chart dimensions
     const barHeight = 25;
-    const marginTop = 60; // Increased to accommodate legend
-    const marginRight = 180; // Increased to accommodate legend
-    const marginBottom = 80; // Increased for axes
+    const marginTop = 60; 
+    const marginRight = 180; 
+    const marginBottom = 80; 
     const marginLeft = 80;
-    const width = 800; // Assuming a fixed width
+    const width = 800;
     const height = (combinedData.length + 1) * barHeight + marginTop + marginBottom;
 
 
 
     // Define colors for each category
     const categoryColors = scaleOrdinal()
-      .domain(["Outerwear", "Bottoms", "Shirts", "Footwear", "Accessories"]) // Unique keys for legend
+      .domain(["Outerwear", "Bottoms", "Shirts", "Footwear", "Accessories"]) 
       .range(["red", "grey", "green", "blue", "purple"])
       ;
 
@@ -112,16 +111,16 @@ background-color: #F5F5F5;
 svg = select("#chart").append("svg")
   .attr("viewBox", [0, 0, width + marginRight, (combinedData.length + 1) * barHeight + marginTop + marginBottom])
   .attr("style", "max-width: 100%; height: auto; font: 10px Playfair Display;")
-  .style("display", "block") // Ensure the SVG is displayed as a block element
-  .style("margin", "0 auto"); // Center the SVG horizontally within its container
+  .style("display", "block") 
+  .style("margin", "0 auto"); 
 
     // Create the positional scales
     x = scaleLinear()
-    .domain([-max(combinedData, d => Math.abs(d.MaxPrice)), max(combinedData, d => Math.abs(d.MaxPrice))]) // Set the domain centered around 0
+    .domain([-max(combinedData, d => Math.abs(d.MaxPrice)), max(combinedData, d => Math.abs(d.MaxPrice))]) 
     .rangeRound([marginLeft, width]);
       y = scaleBand()
       .domain(combinedData.map(d => d.Category))
-      .rangeRound([marginTop, height - marginBottom]) // Adjusted to properly center the y-axis
+      .rangeRound([marginTop, height - marginBottom]) 
       .padding(0.1);
       
 
@@ -130,28 +129,28 @@ svg = select("#chart").append("svg")
       .data(zaraAvgPrices)
       .enter()
       .append("rect")
-      .attr("class", "bar-rect") // Add this class
+      .attr("class", "bar-rect") 
       .attr("fill", d => categoryColors(d.Category))
-      .attr("fill-opacity", .5) // Set opacity to 50%
-      .attr("x", d => x(Math.min(0, -d.AvgPrice)) - 5) // Adjusted position for Zara
+      .attr("fill-opacity", .5) 
+      .attr("x", d => x(Math.min(0, -d.AvgPrice)) - 5) 
       .attr("y", d => y(d.Category))
-      .attr("width", d => Math.abs(x(-d.AvgPrice) - x(0)) + 5) // Adjusted width for Zara
+      .attr("width", d => Math.abs(x(-d.AvgPrice) - x(0)) + 5)
       .attr("height", y.bandwidth())
-      .style("display", "none"); // Initially hide the bars
+      .style("display", "none");
 
     // Add Depop bars
     svg.selectAll(null)
       .data(depopAvgPrices)
       .enter()
       .append("rect")
-      .attr("class", "bar-rect") // Add this class
+      .attr("class", "bar-rect") 
       .attr("fill", d => categoryColors(d.Category))
-      .attr("fill-opacity", 0.5) // Set opacity to 50%
-      .attr("x", d => x(0)) // Always start from the center
+      .attr("fill-opacity", 0.5) 
+      .attr("x", d => x(0)) 
       .attr("y", d => y(d.Category))
-      .attr("width", d => Math.abs(x(d.AvgPrice) - x(0)) + 5) // Adjusted width for Depop
+      .attr("width", d => Math.abs(x(d.AvgPrice) - x(0)) + 5) 
       .attr("height", y.bandwidth())
-      .style("display", "none"); // Initially hide the bars
+      .style("display", "none");
 
     svg.selectAll(".x-axis text")
        .style("font-family", "Playfair Display",);
@@ -170,7 +169,7 @@ svg = select("#chart").append("svg")
         .attr("y1", d => y(d.Category) + y.bandwidth() / 2)
         .attr("x2", d => x(-d.MinPrice))
         .attr("y2", d => y(d.Category) + y.bandwidth() / 2)
-        .attr("stroke", d => categoryColors(d.Category)) // Match the color of the bars
+        .attr("stroke", d => categoryColors(d.Category)) 
         .style("display", "none");
 
     // Add min lines for Zara
@@ -183,7 +182,7 @@ svg = select("#chart").append("svg")
         .attr("y1", d => y(d.Category) + y.bandwidth() / 2)
         .attr("x2", d => x(-d.MaxPrice))
         .attr("y2", d => y(d.Category) + y.bandwidth() / 2)
-        .attr("stroke", d => categoryColors(d.Category)) // Match the color of the bars
+        .attr("stroke", d => categoryColors(d.Category))
         .style("display", "none");
 
     // Add max lines for Depop
@@ -196,7 +195,7 @@ svg = select("#chart").append("svg")
         .attr("y1", d => y(d.Category) + y.bandwidth() / 2)
         .attr("x2", d => x(d.MinPrice))
         .attr("y2", d => y(d.Category) + y.bandwidth() / 2)
-        .attr("stroke", d => categoryColors(d.Category)) // Match the color of the bars
+        .attr("stroke", d => categoryColors(d.Category)) 
         .style("display", "none");
 
     // Add min lines for Depop
@@ -209,7 +208,7 @@ svg = select("#chart").append("svg")
         .attr("y1", d => y(d.Category) + y.bandwidth() / 2)
         .attr("x2", d => x(d.MaxPrice))
         .attr("y2", d => y(d.Category) + y.bandwidth() / 2)
-        .attr("stroke", d => categoryColors(d.Category)) // Match the color of the bars
+        .attr("stroke", d => categoryColors(d.Category)) 
         .style("display", "none");
 
     // Add max dots for Zara
@@ -220,8 +219,8 @@ svg = select("#chart").append("svg")
         .attr("class", "max-dot-zara-left")
         .attr("cx", d => x(-d.MaxPrice))
         .attr("cy", d => y(d.Category) + y.bandwidth() / 2)
-        .attr("r", 3) // Set the radius of the dots
-        .attr("fill", d => categoryColors(d.Category)) // Match the color of the bars
+        .attr("r", 3)
+        .attr("fill", d => categoryColors(d.Category)) 
         .style("display", "none");
 
     // Add min dots for Zara
@@ -232,8 +231,8 @@ svg = select("#chart").append("svg")
         .attr("class", "min-dot-zara-left")
         .attr("cx", d => x(-d.MinPrice))
         .attr("cy", d => y(d.Category) + y.bandwidth() / 2)
-        .attr("r", 3) // Set the radius of the dots
-        .attr("fill", d => categoryColors(d.Category)) // Match the color of the bars
+        .attr("r", 3) 
+        .attr("fill", d => categoryColors(d.Category))
         .style("display", "none");
 
     // Add max dots for Depop
@@ -244,8 +243,8 @@ svg = select("#chart").append("svg")
         .attr("class", "max-dot-depop")
         .attr("cx", d => x(d.MaxPrice))
         .attr("cy", d => y(d.Category) + y.bandwidth() / 2)
-        .attr("r", 3) // Set the radius of the dots
-        .attr("fill", d => categoryColors(d.Category)) // Match the color of the bars
+        .attr("r", 3)
+        .attr("fill", d => categoryColors(d.Category)) 
         .style("display", "none");
 
     // min dots for Depop
@@ -256,15 +255,15 @@ svg = select("#chart").append("svg")
         .attr("class", "min-dot-depop")
         .attr("cx", d => x(d.MinPrice))
         .attr("cy", d => y(d.Category) + y.bandwidth() / 2)
-        .attr("r", 3) // Set the radius of the dots
-        .attr("fill", d => categoryColors(d.Category)) // Match the color of the bars
+        .attr("r", 3) 
+        .attr("fill", d => categoryColors(d.Category)) 
         .style("display", "none");
 
 // Create a container div to hold both checkboxes
 const checkboxContainer = document.createElement("div");
 checkboxContainer.style.display = "flex";
-checkboxContainer.style.justifyContent = "center"; // Center the content horizontally
-checkboxContainer.style.marginBottom = "20px"; // Adjust margin if needed
+checkboxContainer.style.justifyContent = "center";
+checkboxContainer.style.marginBottom = "20px"; 
 
 // Add checkbox for average graph
 const avgCheckbox = document.createElement("input");
@@ -325,19 +324,19 @@ document.getElementById("chart").appendChild(checkboxContainer);
 // Add hover functionality for min-max values for Zara
 svg.selectAll(".min-line-zara-left, .max-line-zara-left")
     .on("mouseenter", function (event, d) {
-        console.log("Mouse entered min-max line for Zara:", d); // Debugging statement
+        console.log("Mouse entered min-max line for Zara:", d); 
 
         const x1 = parseFloat(d3.select(this).attr("x1"));
         const x2 = parseFloat(d3.select(this).attr("x2"));
         const y1 = parseFloat(d3.select(this).attr("y1"));
         const y2 = parseFloat(d3.select(this).attr("y2"));
 
-        console.log("Coordinates:", x1, y1, x2, y2); // Debugging statement
+        console.log("Coordinates:", x1, y1, x2, y2); 
 
         const xPosition = (x1 + x2) / 2;
         const yPosition = (y1 + y2) / 2;
 
-        console.log("Tooltip position:", xPosition, yPosition); // Debugging statement
+        console.log("Tooltip position:", xPosition, yPosition); 
 
         const textGroup = svg.append("g")
             .attr("class", "min-max-tooltip")
@@ -345,23 +344,23 @@ svg.selectAll(".min-line-zara-left, .max-line-zara-left")
 
         textGroup.append("text")
             .text(`Min: ${d3.format(".2f")(Math.min(d.MinPrice, d.MaxPrice))}`)
-            .attr("x", d.Origin === "Zara" ? 20 : -20) // Adjusted x position based on origin
+            .attr("x", d.Origin === "Zara" ? 20 : -20) 
             .attr("y", -10)
             .style("font-size", "10px")
             .style("font-family", "Playfair Display")
             .style("fill", "black")
-            .attr("text-anchor", d.Origin === "Zara" ? "start" : "end"); // Adjusted text-anchor based on origin
+            .attr("text-anchor", d.Origin === "Zara" ? "start" : "end");
 
         textGroup.append("text")
             .text(`Max: ${d3.format(".2f")(Math.max(d.MinPrice, d.MaxPrice))}`)
-            .attr("x", d.Origin === "Zara" ? -20 : 20) // Adjusted x position based on origin
+            .attr("x", d.Origin === "Zara" ? -20 : 20) 
             .attr("y", -10)
             .style("font-size", "10px")
             .style("fill", "black")
-            .attr("text-anchor", d.Origin === "Zara" ? "end" : "start"); // Adjusted text-anchor based on origin
+            .attr("text-anchor", d.Origin === "Zara" ? "end" : "start"); 
     })
     .on("mouseleave", function () {
-        console.log("Mouse left min-max line for Zara"); // Debugging statement
+        console.log("Mouse left min-max line for Zara"); 
 
         svg.select(".min-max-tooltip").remove();
     });
@@ -423,7 +422,7 @@ svg.selectAll(".min-line-zara-left, .max-line-zara-left")
         .attr("y", (_, i) => i * 30)
         .attr("width", 10)
         .attr("height", 10)
-        .attr("fill", d => categoryColors(d)); // Use the same color scale as the bars
+        .attr("fill", d => categoryColors(d)); 
         
 
     legendContainer.selectAll("text")
